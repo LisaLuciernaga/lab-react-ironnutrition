@@ -1,4 +1,3 @@
-// src/App.js
 import AddFoodForm from './AddFoodForm';
 import './App.css';
 import FoodBox from './FoodBox';
@@ -12,38 +11,14 @@ function App() {
   const [calories, setCalories] = useState(0);
   const [servings, setServings] = useState(0);
 
-  const nameHandler = (e) => {
-    setName(e.target.value);
-  };
-  const imageHandler = (e) => {
-    setImage(e.target.value);
-  };
-  const caloriesHandler = (e) => {
-    setCalories(e.target.value);
-  };
-  const servingsHandler = (e) => {
-    setServings(e.target.value);
-  };
 
-  const createFood = (e) => {
-    e.preventDefault();
-    let newFood = {
-      _id: Math.round(Math.random() * 10000000000000000000000),
-      name: setName,
-      image: setImage,
-      calories: setCalories,
-      servings: setServings,
-    };
+  const createFood = (newFood) => {
     setFoodList([...foodList, newFood]);
   };
 
   return (
     <div className="App">
       <AddFoodForm
-        nameHandler={nameHandler}
-        imageHandler={imageHandler}
-        caloriesHandler={caloriesHandler}
-        servingsHandler={servingsHandler}
         createFood={createFood}
       />
 
